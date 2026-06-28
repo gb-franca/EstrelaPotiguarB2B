@@ -1,0 +1,117 @@
+/* ============================================================
+   Estrela Potiguar — Semantic colors
+   Default :root = DARK (the night sky — primary experience)
+   [data-theme="light"] = LIGHT (the daytime map)
+   Always consume these aliases in components, never raw --ep-* palette.
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Surfaces (sky → cards) */
+  --surface-canvas:      var(--ep-night-950);   /* page / map void */
+  --surface-base:        var(--ep-night-900);
+  --surface-card:        var(--ep-night-700);   /* raised cards, sheets */
+  --surface-raised:      var(--ep-night-600);   /* popovers, menus */
+  --surface-inset:       var(--ep-night-800);   /* wells, inputs */
+  --surface-overlay:     rgba(7, 6, 29, 0.72);  /* scrim behind sheets */
+
+  /* Map-specific */
+  --map-canvas:          #060a24;               /* the dark sky tiles */
+  --map-water:           #0a1340;
+  --map-land:            #0e1238;
+  --map-road:            rgba(214, 201, 180, 0.14);
+
+  /* Text */
+  --text-primary:        var(--ep-sand-100);
+  --text-secondary:      rgba(233, 224, 210, 0.72);
+  --text-muted:          rgba(233, 224, 210, 0.45);
+  --text-on-accent:      var(--ep-night-900);   /* navy on yellow */
+  --text-on-aurora:      var(--ep-white);
+
+  /* Borders & dividers */
+  --border-subtle:       rgba(233, 224, 210, 0.12);
+  --border-default:      rgba(233, 224, 210, 0.20);
+  --border-strong:       rgba(233, 224, 210, 0.34);
+  --border-focus:        var(--ep-star-400);
+
+  /* Accent — the star (primary highlight) */
+  --accent:              var(--ep-star-400);
+  --accent-hover:        var(--ep-star-300);
+  --accent-press:        var(--ep-star-500);
+  --accent-soft:         rgba(248, 222, 34, 0.16);
+  --on-accent:           var(--ep-night-900);
+
+  /* Brand accents */
+  --aurora:              var(--ep-aurora-400);
+  --aurora-soft:         rgba(246, 55, 236, 0.18);
+  --mare:                var(--ep-mare-400);
+  --mare-soft:           rgba(150, 223, 41, 0.18);
+
+  /* Semantic */
+  --success:             var(--ep-mare-400);
+  --success-soft:        rgba(150, 223, 41, 0.16);
+  --warning:             var(--ep-star-400);
+  --warning-soft:        rgba(248, 222, 34, 0.16);
+  --danger:              var(--ep-coral-400);
+  --danger-soft:         rgba(255, 107, 94, 0.16);
+  --info:                var(--ep-azure-400);
+  --info-soft:           rgba(74, 209, 255, 0.16);
+
+  /* The glow — used for star halos & focus rings */
+  --glow-star:           0 0 24px rgba(248, 222, 34, 0.55);
+  --glow-aurora:         0 0 28px rgba(246, 55, 236, 0.45);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --surface-canvas:      var(--ep-sand-100);
+  --surface-base:        var(--ep-sand-50);
+  --surface-card:        var(--ep-white);
+  --surface-raised:      var(--ep-white);
+  --surface-inset:       var(--ep-sand-100);
+  --surface-overlay:     rgba(16, 15, 70, 0.32);
+
+  --map-canvas:          #eef1f6;
+  --map-water:           #cfe0f2;
+  --map-land:            #e7eadf;
+  --map-road:            rgba(16, 15, 70, 0.12);
+
+  --text-primary:        var(--ep-night-700);
+  --text-secondary:      rgba(16, 15, 70, 0.68);
+  --text-muted:          rgba(16, 15, 70, 0.42);
+  --text-on-accent:      var(--ep-night-900);
+  --text-on-aurora:      var(--ep-white);
+
+  --border-subtle:       rgba(16, 15, 70, 0.10);
+  --border-default:      rgba(16, 15, 70, 0.16);
+  --border-strong:       rgba(16, 15, 70, 0.28);
+  --border-focus:        var(--ep-aurora-400);
+
+  /* On light maps yellow is low-contrast for UI; keep it as the star fill,
+     but darken the interactive accent toward the night anchor. */
+  --accent:              var(--ep-night-700);
+  --accent-hover:        var(--ep-night-600);
+  --accent-press:        var(--ep-night-800);
+  --accent-soft:         rgba(16, 15, 70, 0.08);
+  --on-accent:           var(--ep-sand-50);
+
+  --aurora:              var(--ep-aurora-500);
+  --aurora-soft:         rgba(246, 55, 236, 0.12);
+  --mare:                var(--ep-mare-500);
+  --mare-soft:           rgba(150, 223, 41, 0.16);
+
+  --success:             var(--ep-mare-500);
+  --success-soft:        rgba(116, 180, 23, 0.14);
+  --warning:             var(--ep-star-500);
+  --warning-soft:        rgba(248, 222, 34, 0.22);
+  --danger:              #d83a2c;
+  --danger-soft:         rgba(216, 58, 44, 0.12);
+  --info:                #1486c4;
+  --info-soft:           rgba(20, 134, 196, 0.12);
+
+  --glow-star:           0 0 18px rgba(248, 222, 34, 0.65);
+  --glow-aurora:         0 0 20px rgba(246, 55, 236, 0.30);
+}

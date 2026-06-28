@@ -1,0 +1,24 @@
+<!-- @dsCard group="Spacing" viewport="700x210" name="Glow & glass" subtitle="The star halo and the frosted map sheet" -->
+<!doctype html><html data-theme="dark"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:0;font-family:var(--font-body)}
+  .stage{position:relative;height:210px;padding:30px 28px;display:flex;gap:28px;align-items:center}
+  .stage::before{content:"";position:absolute;inset:0;z-index:0}
+  .stage{background:var(--map-canvas)}
+  .field{position:absolute;inset:0;opacity:.9}
+  .c{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .star{width:54px;height:54px;border-radius:var(--radius-full);background:var(--accent)}
+  .l{font-size:10px;color:var(--text-secondary)}
+  .glass{position:relative;z-index:2;flex:1;align-self:stretch;margin:30px 0;border-radius:var(--radius-lg);
+    background:var(--glass-tint-dark);-webkit-backdrop-filter:var(--blur-glass);backdrop-filter:var(--blur-glass);
+    border:1px solid var(--border-default);box-shadow:var(--shadow-float);
+    display:flex;align-items:center;justify-content:center;color:var(--text-primary);font-size:13px;font-weight:600}
+</style></head><body>
+  <div class="stage ep-starfield">
+    <div class="field ep-starfield"></div>
+    <div class="c"><div class="star" style="box-shadow:var(--glow-sm)"></div><span class="l">glow-sm</span></div>
+    <div class="c"><div class="star" style="box-shadow:var(--glow-md)"></div><span class="l">glow-md</span></div>
+    <div class="c"><div class="star" style="box-shadow:var(--glow-lg)"></div><span class="l">glow-lg</span></div>
+    <div class="glass">frosted sheet · --blur-glass</div>
+  </div>
+</body></html>

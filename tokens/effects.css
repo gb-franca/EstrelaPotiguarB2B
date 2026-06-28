@@ -1,0 +1,42 @@
+/* ============================================================
+   Estrela Potiguar — Effects: elevation, glow, blur, motion
+   Shadows are deep-night and soft. Stars add a warm glow, never a
+   hard drop shadow. Glass/blur used for sheets floating over the map.
+   ============================================================ */
+:root {
+  /* Elevation — cool, deep shadows for the night canvas */
+  --shadow-sm:  0 1px 2px rgba(4, 4, 20, 0.40);
+  --shadow-md:  0 6px 18px rgba(4, 4, 20, 0.45);
+  --shadow-lg:  0 16px 40px rgba(4, 4, 20, 0.55);
+  --shadow-xl:  0 28px 70px rgba(4, 4, 20, 0.62);
+
+  /* Sheet / popover floating over the map */
+  --shadow-float: 0 12px 48px rgba(4, 4, 20, 0.55);
+
+  /* Inset (wells, pressed) */
+  --shadow-inset: inset 0 1px 2px rgba(4, 4, 20, 0.5);
+
+  /* Glow — the signature warm star halo */
+  --glow-sm:  0 0 10px rgba(248, 222, 34, 0.45);
+  --glow-md:  0 0 22px rgba(248, 222, 34, 0.55);
+  --glow-lg:  0 0 40px rgba(248, 222, 34, 0.5);
+
+  /* Focus ring (use with --border-focus) */
+  --ring: 0 0 0 3px var(--accent-soft);
+
+  /* Glass / blur for floating UI over the map */
+  --blur-glass: saturate(140%) blur(18px); /* @kind other */
+  --glass-tint-dark:  rgba(16, 15, 70, 0.62);
+  --glass-tint-light: rgba(255, 255, 255, 0.66);
+
+  /* Motion — calm, celestial. No bounce on UI; gentle ease. */
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);   /* @kind other */
+  --ease-out:      cubic-bezier(0.0, 0.0, 0.2, 1);   /* @kind other */
+  --ease-in:       cubic-bezier(0.4, 0.0, 1, 1);     /* @kind other */
+  --ease-spring:   cubic-bezier(0.34, 1.4, 0.64, 1); /* @kind other */
+
+  --dur-fast:   120ms;  /* @kind other */
+  --dur-base:   220ms;  /* @kind other */
+  --dur-slow:   360ms;  /* @kind other */
+  --dur-twinkle: 3.5s;  /* @kind other */
+}

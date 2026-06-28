@@ -1,0 +1,49 @@
+/* ============================================================
+   Estrela Potiguar — Spacing, radius, sizing, layout
+   8px base grid. Generous breathing room — the sky is wide.
+   ============================================================ */
+:root {
+  /* Spacing scale */
+  --space-0:   0;
+  --space-1:   0.25rem;  /* 4 */
+  --space-2:   0.5rem;   /* 8 */
+  --space-3:   0.75rem;  /* 12 */
+  --space-4:   1rem;     /* 16 */
+  --space-5:   1.5rem;   /* 24 */
+  --space-6:   2rem;     /* 32 */
+  --space-7:   2.5rem;   /* 40 */
+  --space-8:   3rem;     /* 48 */
+  --space-9:   4rem;     /* 64 */
+  --space-10:  6rem;     /* 96 */
+
+  /* Radii — soft, pebble-like; pins & chips go full-round */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   26px;
+  --radius-2xl:  36px;
+  --radius-full: 999px;
+
+  /* Control heights */
+  --control-sm:  32px;
+  --control-md:  42px;
+  --control-lg:  52px;
+
+  /* Layout */
+  --container-sm:  640px;
+  --container-md:  960px;
+  --container-lg:  1200px;
+  --container-xl:  1440px;
+  --sheet-width:   384px;   /* map detail sheet / sidebar */
+  --gutter:        var(--space-5);
+
+  /* Z layers */
+  --z-map:      0;   /* @kind other */
+  --z-pin:      20;  /* @kind other */
+  --z-sheet:    40;  /* @kind other */
+  --z-header:   60;  /* @kind other */
+  --z-overlay:  80;  /* @kind other */
+  --z-toast:    90;  /* @kind other */
+  --z-tooltip:  100; /* @kind other */
+}

@@ -1,0 +1,35 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estrela Potiguar — shooting star with shrimp-aesthetasc trail">
+  <defs>
+    <radialGradient id="epStarFill" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#fffbe3"></stop>
+      <stop offset="42%" stop-color="#f8de22"></stop>
+      <stop offset="100%" stop-color="#e6c70f"></stop>
+    </radialGradient>
+    
+    <linearGradient id="epTrail" x1="33" y1="67" x2="90" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff3a8" stop-opacity="0.95"></stop>
+      <stop offset="45%" stop-color="#f8de22" stop-opacity="0.55"></stop>
+      <stop offset="100%" stop-color="#f8de22" stop-opacity="0"></stop>
+    </linearGradient>
+  </defs>
+
+  
+  <path d="M33 67 C52 52, 72 40, 90 16 C84 40, 70 55, 50 66 C44 69, 38 69, 33 67 Z" fill="url(#epTrail)" opacity="0.32"></path>
+
+  
+  <g fill="none" stroke="url(#epTrail)" stroke-linecap="round">
+    <path d="M34 64 Q60 40 83 47" stroke-width="1.5"></path>
+    <path d="M34 63 Q58 36 88 38" stroke-width="1.4"></path>
+    <path d="M34 62 Q56 33 80 30" stroke-width="1.5"></path>
+    <path d="M34 61 Q54 31 77 24" stroke-width="1.6"></path>
+    <path d="M33 60 Q50 30 71 22" stroke-width="1.5"></path>
+    <path d="M33 59 Q46 31 63 23" stroke-width="1.4"></path>
+    <path d="M33 58 Q43 33 56 26" stroke-width="1.3"></path>
+    <path d="M33 62 Q48 41 49 29" stroke-width="1.2"></path>
+  </g>
+
+  
+  <g transform="translate(31 67) scale(0.34) translate(-50 -50)">
+    <path d="M50 3 C54.5 31 69 45.5 97 50 C69 54.5 54.5 69 50 97 C45.5 69 31 54.5 3 50 C31 45.5 45.5 31 50 3 Z" fill="url(#epStarFill)"></path>
+  </g>
+</svg>

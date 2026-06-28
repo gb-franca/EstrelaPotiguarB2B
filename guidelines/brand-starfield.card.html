@@ -1,0 +1,22 @@
+<!-- @dsCard group="Brand" viewport="700x200" name="Starfield & night sky" subtitle="The signature background — .ep-starfield over night gradient" -->
+<!doctype html><html data-theme="dark"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:0;font-family:var(--font-body)}
+  .sky{position:relative;height:200px;overflow:hidden;
+    background:radial-gradient(120% 90% at 80% -10%, #252178 0%, #100f46 38%, #07061d 100%)}
+  .field{position:absolute;inset:0}
+  .copy{position:absolute;left:28px;bottom:24px;z-index:2}
+  .h{font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--text-primary);margin:0}
+  .s{color:var(--text-secondary);font-size:13px;margin-top:4px}
+  .moon{position:absolute;right:40px;top:30px;width:60px;height:60px;border-radius:50%;
+    background:radial-gradient(circle at 38% 36%, #fffbe3, #f8de22 60%, #e6c70f);box-shadow:var(--glow-lg)}
+</style></head><body>
+  <div class="sky">
+    <div class="field ep-starfield" style="background-color:transparent"></div>
+    <div class="moon ep-twinkle"></div>
+    <div class="copy">
+      <p class="h">O céu potiguar</p>
+      <p class="s">radial night gradient + .ep-starfield + glowing star</p>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,31 @@
+<!-- @dsCard group="Colors" viewport="700x220" name="Dark theme — surfaces & text" subtitle="Default :root — the night sky experience" -->
+<!doctype html><html data-theme="dark"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:20px;background:var(--surface-canvas);font-family:var(--font-body)}
+  .wrap{display:flex;gap:14px}
+  .stack{display:flex;flex-direction:column;gap:8px;flex:1}
+  .tile{border-radius:var(--radius-md);padding:12px 14px;border:1px solid var(--border-subtle);font-size:12px}
+  .card{background:var(--surface-card)}
+  .raised{background:var(--surface-raised)}
+  .inset{background:var(--surface-inset)}
+  .tok{color:var(--text-muted);font-size:10px;margin-top:3px}
+  .txtbox{background:var(--surface-card);border-radius:var(--radius-md);padding:14px;border:1px solid var(--border-subtle);flex:1}
+  .p{color:var(--text-primary);font-size:14px;font-weight:600}
+  .s{color:var(--text-secondary);font-size:13px;margin-top:4px}
+  .m{color:var(--text-muted);font-size:12px;margin-top:4px}
+  .acc{color:var(--accent);font-size:13px;margin-top:4px;font-weight:600}
+</style></head><body>
+  <div class="wrap">
+    <div class="stack">
+      <div class="tile card">surface-card<div class="tok">--surface-card</div></div>
+      <div class="tile raised">surface-raised<div class="tok">--surface-raised</div></div>
+      <div class="tile inset">surface-inset<div class="tok">--surface-inset</div></div>
+    </div>
+    <div class="txtbox">
+      <div class="p">Primary — Praia da Pipa</div>
+      <div class="s">Secondary — 14 atrações próximas</div>
+      <div class="m">Muted — atualizado há 2h</div>
+      <div class="acc">Accent — ver no mapa ★</div>
+    </div>
+  </div>
+</body></html>

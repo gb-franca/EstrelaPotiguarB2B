@@ -1,0 +1,59 @@
+<!-- @dsCard group="Components" viewport="700x430" name="Brand — pins, attraction cards, theme toggle" subtitle="MapPin · AttractionCard · ThemeToggle" -->
+<!doctype html>
+<html data-theme="dark">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body{margin:0;padding:24px;background:var(--surface-base);font-family:var(--font-body)}
+  .lab{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin:0 0 12px}
+  .pins{position:relative;height:150px;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:22px;border:1px solid var(--border-subtle)}
+  .pinrow{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-around;padding:0 30px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+  .toggle-row{display:flex;align-items:center;gap:16px;margin-top:22px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { MapPin, AttractionCard, ThemeToggle } = window.EstrelaPotiguarDesignSystem_69a35c;
+
+function Demo(){
+  const [theme,setTheme]=React.useState('dark');
+  React.useEffect(()=>{document.documentElement.setAttribute('data-theme',theme);},[theme]);
+  return (
+    <div>
+      <p className="lab">MapPin — each attraction is a star</p>
+      <div className="pins ep-starfield" style={{background:'radial-gradient(120% 120% at 70% -10%, #252178, #100f46 55%, #07061d)'}}>
+        <div className="pinrow">
+          <MapPin color="var(--info)" label="Pipa" />
+          <MapPin color="var(--aurora)" label="Forte" selected />
+          <MapPin color="var(--accent)" twinkle />
+          <MapPin color="var(--mare)" label="Trilha" />
+        </div>
+      </div>
+
+      <p className="lab">AttractionCard</p>
+      <div className="cols">
+        <AttractionCard name="Praia da Pipa" category="Praia" categoryColor="var(--info)"
+          rating={4.8} reviews={1240} distance="82 km" open price="Grátis" onClick={()=>{}} />
+        <AttractionCard name="Forte dos Reis Magos" category="Histórico" categoryColor="var(--aurora)"
+          featured rating={4.6} reviews={980} distance="3,1 km" open={false} price="R$ 30" onClick={()=>{}} />
+      </div>
+
+      <div className="toggle-row">
+        <p className="lab" style={{margin:0}}>ThemeToggle</p>
+        <ThemeToggle theme={theme} onChange={setTheme} />
+        <span style={{fontSize:13,color:'var(--text-secondary)'}}>{theme === 'dark' ? 'Modo noturno' : 'Modo diurno'}</span>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body>
+</html>

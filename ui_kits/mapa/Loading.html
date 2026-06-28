@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="design_doc_mode" content="canvas">
+<title>Estrela Potiguar — Tela de carregamento</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-body); }
+  .frame-label { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: #cfc7d8; margin: 0 0 10px 2px; letter-spacing: .04em; }
+  .device { border-radius: 22px; overflow: hidden; box-shadow: 0 30px 80px rgba(4,4,20,.6); border: 1px solid rgba(233,224,210,.12); }
+
+  /* ---- the loading screen ---- */
+  .loader {
+    position: relative; width: 100%; height: 100%; overflow: hidden;
+    background:
+      radial-gradient(120% 85% at 80% -10%, #252178 0%, #100f46 42%, #07061d 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .loader .stars {
+    position: absolute; inset: 0; background-color: transparent; opacity: .9;
+  }
+  .loader .stars.b { background-size: 220px 220px; opacity: .6; animation: ep-drift 70s linear infinite; }
+  .loader .glow-floor {
+    position: absolute; left: 50%; bottom: -30%; width: 130%; height: 60%;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(246,55,236,.16), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* shooting stars — head streaking down-left, trail up-right (matches the mark) */
+  .shooter { position: absolute; top: -8%; right: -12%; width: 46%; height: 2px;
+    transform: rotate(208deg); transform-origin: right center; opacity: 0; }
+  .shooter::before {
+    content: ""; position: absolute; right: 0; top: -1px; width: 100%; height: 3px;
+    background: linear-gradient(270deg, #fffbe3, rgba(248,222,34,.7) 22%, transparent 100%);
+    border-radius: 999px;
+    box-shadow: 0 0 10px rgba(248,222,34,.8);
+  }
+  .shooter.s1 { animation: ep-shoot 5.5s ease-in 1.2s infinite; }
+  .shooter.s2 { top: 20%; right: -20%; width: 38%; animation: ep-shoot 6.5s ease-in 3.6s infinite; }
+  .shooter.s3 { top: -2%; right: 24%; width: 30%; animation: ep-shoot 7.5s ease-in 6s infinite; }
+
+  .center { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; }
+  .mark-wrap { position: relative; }
+  .mark-wrap::after {
+    content: ""; position: absolute; inset: -28%; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(248,222,34,.28), transparent 72%);
+    animation: ep-breathe 3.4s var(--ease-standard, ease) infinite;
+  }
+  .mark { position: relative; display: block; animation: ep-float 4s var(--ease-standard, ease) infinite; }
+  .word { display: block; margin-top: 18px; }
+
+  .msg {
+    margin-top: 8px; min-height: 1.4em; color: var(--text-secondary);
+    font-size: 16px; letter-spacing: .01em; text-align: center;
+    transition: opacity .4s ease; max-width: 80%;
+  }
+
+  /* indeterminate star-track */
+  .track { position: relative; margin-top: 26px; height: 4px; border-radius: 999px;
+    background: rgba(233,224,210,.12); overflow: hidden; }
+  .track > span { position: absolute; top: 0; left: -40%; height: 100%; width: 40%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    box-shadow: var(--glow-sm); animation: ep-sweep 1.7s var(--ease-standard, ease) infinite; }
+
+  .foot { margin-top: 18px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--text-muted); }
+
+  @keyframes ep-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes ep-breathe { 0%,100% { opacity: .55; transform: scale(.92); } 50% { opacity: 1; transform: scale(1.06); } }
+  @keyframes ep-sweep { 0% { left: -42%; } 100% { left: 102%; } }
+  @keyframes ep-drift { to { background-position: -220px 220px; } }
+  @keyframes ep-shoot {
+    0%   { opacity: 0; transform: rotate(208deg) translateX(0); }
+    6%   { opacity: 1; }
+    34%  { opacity: 1; }
+    48%  { opacity: 0; transform: rotate(208deg) translateX(-130%); }
+    100% { opacity: 0; transform: rotate(208deg) translateX(-130%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mark, .mark-wrap::after, .shooter, .track > span, .stars.b { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== DESKTOP ===================== -->
+  <div style="position:absolute; left:0; top:0; width:1440px;" data-drags-parent="1">
+    <p class="frame-label">Desktop · 1440 × 900</p>
+    <div class="device" style="width:1440px; height:900px;">
+      <div class="loader" data-screen-label="Carregamento — Desktop">
+        <div class="stars ep-starfield"></div>
+        <div class="stars b ep-starfield"></div>
+        <div class="glow-floor"></div>
+        <span class="shooter s1"></span>
+        <span class="shooter s2"></span>
+        <span class="shooter s3"></span>
+        <div class="center">
+          <div class="mark-wrap">
+            <img class="mark" src="../../assets/logo/estrela-mark.svg" alt="" style="width:128px; height:128px;">
+          </div>
+          <img class="word" src="../../assets/logo/estrela-potiguar-lockup.svg" alt="Estrela Potiguar" style="width:340px;">
+          <p class="msg" data-msg style="font-size:19px;">O céu potiguar está chegando…</p>
+          <div class="track" style="width:280px;"><span></span></div>
+          <p class="foot">Litoral · Rio Grande do Norte</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MOBILE ===================== -->
+  <div style="position:absolute; left:1540px; top:0; width:390px;" data-drags-parent="1">
+    <p class="frame-label">Mobile · 390 × 844</p>
+    <div class="device" style="width:390px; height:844px;">
+      <div class="loader" data-screen-label="Carregamento — Mobile">
+        <div class="stars ep-starfield" style="background-size:200px 200px;"></div>
+        <div class="stars b ep-starfield" style="background-size:140px 140px;"></div>
+        <div class="glow-floor"></div>
+        <span class="shooter s1"></span>
+        <span class="shooter s2"></span>
+        <div class="center" style="width:100%;">
+          <div class="mark-wrap">
+            <img class="mark" src="../../assets/logo/estrela-mark.svg" alt="" style="width:96px; height:96px;">
+          </div>
+          <img class="word" src="../../assets/logo/estrela-potiguar-lockup.svg" alt="Estrela Potiguar" style="width:230px;">
+          <p class="msg" data-msg>O céu potiguar está chegando…</p>
+          <div class="track" style="width:200px;"><span></span></div>
+          <p class="foot">Litoral · RN</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const MESSAGES = [
+    'O céu potiguar está chegando…',
+    'Alinhando as estrelas…',
+    'Montando o seu céu…',
+    'Buscando atrações por perto…',
+    'Quase lá, prepare-se para brilhar…',
+  ];
+  const nodes = [...document.querySelectorAll('[data-msg]')];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % MESSAGES.length;
+    nodes.forEach(n => {
+      n.style.opacity = '0';
+      setTimeout(() => { n.textContent = MESSAGES[i]; n.style.opacity = '1'; }, 380);
+    });
+  }, 2400);
+</script>
+</body>
+</html>

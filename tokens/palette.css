@@ -1,0 +1,51 @@
+/* ============================================================
+   Estrela Potiguar — Raw palette (brand primitives)
+   Source palette: F637EC · 96DF29 · E9E0D2 · F8DE22 · 100F46
+   Theme: the night sky of Rio Grande do Norte. Stars = attractions.
+   These are RAW values only. Use the semantic aliases in colors.css.
+   ============================================================ */
+:root {
+  /* --- Night (deep indigo / navy — the sky canvas) --- */
+  --ep-night-950: #07061d;
+  --ep-night-900: #0a0930;
+  --ep-night-800: #0d0b3b;
+  --ep-night-700: #100f46;   /* brand anchor */
+  --ep-night-600: #191760;
+  --ep-night-500: #252178;
+  --ep-night-400: #383293;
+  --ep-night-300: #534caf;
+
+  /* --- Star (yellow — highlights, pins, the glow) --- */
+  --ep-star-100: #fffbe3;
+  --ep-star-200: #fff3a8;
+  --ep-star-300: #fbe96b;
+  --ep-star-400: #f8de22;   /* brand anchor */
+  --ep-star-500: #e6c70f;
+  --ep-star-600: #bfa406;
+
+  /* --- Sand (cream — warm light, surfaces in light mode, text on night) --- */
+  --ep-sand-50:  #faf6ef;
+  --ep-sand-100: #f3ecdf;
+  --ep-sand-200: #e9e0d2;   /* brand anchor */
+  --ep-sand-300: #d6c9b4;
+  --ep-sand-400: #b8a987;
+  --ep-sand-500: #8f8062;
+
+  /* --- Aurora (magenta — featured / special pins, accents) --- */
+  --ep-aurora-300: #fa9af4;
+  --ep-aurora-400: #f637ec;   /* brand anchor */
+  --ep-aurora-500: #c819c0;
+
+  /* --- Maré (lime — open/nature/trail tags, success) --- */
+  --ep-mare-300: #c2f07e;
+  --ep-mare-400: #96df29;   /* brand anchor */
+  --ep-mare-500: #74b417;
+
+  /* --- Sinais (functional signal colors, tuned to the palette) --- */
+  --ep-coral-400: #ff6b5e;   /* danger / closed */
+  --ep-azure-400: #4ad1ff;   /* info / water */
+
+  /* --- Absolutes --- */
+  --ep-black: #050414;
+  --ep-white: #ffffff;
+}
