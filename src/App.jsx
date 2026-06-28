@@ -454,62 +454,57 @@ export default function App() {
                 gap: '14px'
               }}>
                 <Card interactive padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '6px', borderLeft: '3px solid var(--info)' }}>
-                  <span className="ep-eyebrow" style={{ color: 'var(--info)', fontSize: '11px' }}>Total de Retornos</span>
-                  <span style={{ fontSize: '30px', fontFamily: 'var(--font-display)', fontWeight: 700 }}>
+                  <span className="ep-eyebrow" style={{ color: 'var(--info)', fontSize: '15px' }}>Total de Retornos</span>
+                  <span style={{ fontSize: '40px', fontFamily: 'var(--font-display)', fontWeight: 700 }}>
                     {kpis.total}
                   </span>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Interações totais no aplicativo</span>
+                  <span style={{ fontSize: '16px', color: 'var(--text-muted)' }}>Interações totais no aplicativo</span>
                 </Card>
 
                 <Card interactive padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '6px', borderLeft: '3px solid var(--accent)' }}>
-                  <span className="ep-eyebrow" style={{ color: 'var(--accent)', fontSize: '11px' }}>Estrelas Concedidas</span>
+                  <span className="ep-eyebrow" style={{ color: 'var(--accent)', fontSize: '15px' }}>Estrelas Concedidas</span>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-                    <span style={{ fontSize: '30px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--accent)' }}>
+                    <span style={{ fontSize: '40px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--accent)' }}>
                       {kpis.stars}
                     </span>
-                    <span style={{ color: 'var(--success)', fontSize: '11px', fontWeight: 600 }}>Gostei</span>
+                    <span style={{ color: 'var(--success)', fontSize: '14px', fontWeight: 600 }}>Gostei</span>
                   </div>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Clientes satisfeitos</span>
+                  <span style={{ fontSize: '16px', color: 'var(--text-muted)' }}>Clientes satisfeitos</span>
                 </Card>
 
                 <Card interactive padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '6px', borderLeft: '3px solid var(--ep-night-300)' }}>
-                  <span className="ep-eyebrow" style={{ color: 'var(--text-muted)', fontSize: '11px' }}>Brilhos Apagados</span>
+                  <span className="ep-eyebrow" style={{ color: 'var(--text-muted)', fontSize: '15px' }}>Brilhos Apagados</span>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-                    <span style={{ fontSize: '30px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--text-secondary)' }}>
+                    <span style={{ fontSize: '40px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--text-secondary)' }}>
                       {kpis.eclipses}
                     </span>
-                    <span style={{ color: 'var(--danger)', fontSize: '11px', fontWeight: 600 }}>Não Gostei</span>
+                    <span style={{ color: 'var(--danger)', fontSize: '14px', fontWeight: 600 }}>Não Gostei</span>
                   </div>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Pontos a melhorar</span>
+                  <span style={{ fontSize: '16px', color: 'var(--text-muted)' }}>Pontos a melhorar</span>
                 </Card>
 
                 <Card interactive padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '6px', borderLeft: '3px solid var(--aurora)' }}>
-                  <span className="ep-eyebrow" style={{ color: 'var(--aurora)', fontSize: '11px' }}>Brilho do Negócio</span>
+                  <span className="ep-eyebrow" style={{ color: 'var(--aurora)', fontSize: '15px' }}>Brilho do Negócio</span>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-                    <span style={{ fontSize: '30px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--aurora)', filter: 'drop-shadow(var(--glow-star))' }}>
+                    <span style={{ fontSize: '40px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--aurora)', filter: 'drop-shadow(var(--glow-star))' }}>
                       {kpis.brightness}
                     </span>
-                    <span style={{ color: 'var(--success)', fontSize: '11px', fontWeight: 600 }}>Aprovação</span>
+                    <span style={{ color: 'var(--success)', fontSize: '14px', fontWeight: 600 }}>Aprovação</span>
                   </div>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Índice líquido de satisfação</span>
+                  <span style={{ fontSize: '16px', color: 'var(--text-muted)' }}>Índice líquido de satisfação</span>
                 </Card>
               </div>
 
-              {/* Grid principal com Gráficos e Perfil Rápido */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: isMobile ? '1fr' : '1.5fr 1fr',
-                gap: '24px'
-              }}>
-
-                {/* Comparativo Semanal Estrela vs Brilho Apagado */}
-                <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '16px', minHeight: '380px' }}>
+              {/* Row 2: Céu do Estabelecimento & Perfil de Público */}
+              <Card padding="lg" style={{ minHeight: '380px' }}>
+                {/* Top: Céu do Estabelecimento */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Céu do Estabelecimento</h3>
-                      <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Histórico diário de Estrelas (Gostei) vs Brilhos Apagados (Não Gostei)</span>
+                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Céu do Estabelecimento</h3>
+                      <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Histórico diário de Estrelas (Gostei) vs Brilhos Apagados (Não Gostei)</span>
                     </div>
-                    <div style={{ display: 'flex', gap: '14px', fontSize: '12px' }}>
+                    <div style={{ display: 'flex', gap: '14px', fontSize: '14px' }}>
                       <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                         <span style={{ width: '8px', height: '8px', background: 'var(--accent)', borderRadius: '50%', boxShadow: 'var(--glow-sm)' }} />
                         Estrela
@@ -521,84 +516,160 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* SVG Bar Chart */}
-                  <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', padding: '20px 10px 0', height: '230px' }}>
-                    {[
-                      { day: "Seg", stars: 9, eclipses: 1 },
-                      { day: "Ter", stars: 5, eclipses: 3 },
-                      { day: "Qua", stars: 12, eclipses: 2 },
-                      { day: "Qui", stars: 14, eclipses: 1 },
-                      { day: "Sex", stars: 24, eclipses: 4 },
-                      { day: "Sáb", stars: 28, eclipses: 3 },
-                      { day: "Dom", stars: 22, eclipses: 2 }
-                    ].map((item, idx) => {
-                      const scale = 5;
-                      return (
-                        <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, gap: '10px' }}>
-                          <div style={{ display: 'flex', gap: '6px', alignItems: 'flex-end', height: '180px' }}>
-                            {/* Stars bar */}
+                  {/* SVG Bar Chart with Grid and Labels */}
+                  <div style={{ display: 'flex', flexDirection: 'row', flex: 1, gap: '12px', height: '240px', marginTop: '20px' }}>
+                    {/* Y-Axis scale labels on the left */}
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '180px', fontSize: '12px', color: 'var(--text-muted)', width: '24px', textAlign: 'right', borderRight: '1px solid var(--border-subtle)', paddingRight: '8px' }}>
+                      <span>30</span>
+                      <span>20</span>
+                      <span>10</span>
+                      <span>0</span>
+                    </div>
+
+                    {/* Columns area */}
+                    <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', position: 'relative', height: '180px' }}>
+                      {/* Horizontal background grid lines */}
+                      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100%', pointerEvents: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                        <div style={{ borderTop: '1px dashed var(--border-subtle)', width: '100%', height: '1px' }} />
+                        <div style={{ borderTop: '1px dashed var(--border-subtle)', width: '100%', height: '1px' }} />
+                        <div style={{ borderTop: '1px dashed var(--border-subtle)', width: '100%', height: '1px' }} />
+                        <div style={{ borderTop: '1px solid var(--border-strong)', width: '100%', height: '1px' }} />
+                      </div>
+
+                      {/* The bars */}
+                      {[
+                        { day: "Seg", stars: 9, eclipses: 1 },
+                        { day: "Ter", stars: 5, eclipses: 3 },
+                        { day: "Qua", stars: 12, eclipses: 2 },
+                        { day: "Qui", stars: 14, eclipses: 1 },
+                        { day: "Sex", stars: 24, eclipses: 4 },
+                        { day: "Sáb", stars: 28, eclipses: 3 },
+                        { day: "Dom", stars: 22, eclipses: 2 }
+                      ].map((item, idx) => {
+                        const scale = 5.0; // 30 max * 5.0 = 150px (leaving 30px for labels at top)
+                        return (
+                          <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, zIndex: 1 }}>
+                            <div style={{ display: 'flex', gap: '6px', alignItems: 'flex-end', height: '180px', position: 'relative' }}>
+                              
+                              {/* Stars bar + label */}
+                              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                                <span style={{ fontSize: '11px', fontWeight: '700', color: 'var(--accent)' }}>{item.stars}</span>
+                                <div style={{
+                                  width: '18px',
+                                  height: `${item.stars * scale}px`,
+                                  background: 'var(--accent)',
+                                  borderRadius: 'var(--radius-xs) var(--radius-xs) 0 0',
+                                  boxShadow: 'var(--glow-sm)',
+                                  transition: 'height 0.4s ease'
+                                }} />
+                              </div>
+
+                              {/* Brilhos Apagados bar + label */}
+                              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                                <span style={{ fontSize: '11px', fontWeight: '700', color: 'var(--text-secondary)' }}>{item.eclipses}</span>
+                                <div style={{
+                                  width: '18px',
+                                  height: `${item.eclipses * scale}px`,
+                                  background: 'var(--border-strong)',
+                                  borderRadius: 'var(--radius-xs) var(--radius-xs) 0 0',
+                                  transition: 'height 0.4s ease'
+                                }} />
+                              </div>
+
+                            </div>
+                            <span style={{ fontSize: '14px', color: 'var(--text-secondary)', fontWeight: 600, marginTop: '8px' }}>{item.day}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Section Divider */}
+                <hr style={{ border: 'none', borderTop: '1px solid var(--border-subtle)', margin: '28px 0 20px 0' }} />
+
+                {/* Bottom: Perfil do Turista Rápido */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div>
+                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Perfil do Turista Rápido</h3>
+                    <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Identidade de grupo, vibes e orçamento local</span>
+                  </div>
+
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+                    gap: '32px',
+                    marginTop: '8px'
+                  }}>
+                    {/* Vibes */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                      <span className="ep-eyebrow" style={{ color: 'var(--info)', fontSize: '15px' }}>Vibes da Semana</span>
+                      {TOURIST_DEMOGRAPHICS.vibes.map((v, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '15px' }}>
+                          <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{v.name}</span>
+                          <div style={{ width: '100px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
+                            <div style={{ width: `${v.pct}%`, height: '100%', background: v.color }} />
+                          </div>
+                          <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{v.pct}%</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Groups */}
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '12px',
+                      borderLeft: isMobile ? 'none' : '1px solid var(--border-subtle)',
+                      paddingLeft: isMobile ? 0 : '24px',
+                      borderTop: isMobile ? '1px solid var(--border-subtle)' : 'none',
+                      paddingTop: isMobile ? '16px' : 0
+                    }}>
+                      <span className="ep-eyebrow" style={{ color: 'var(--aurora)', fontSize: '15px' }}>Composição do Grupo</span>
+                      {TOURIST_DEMOGRAPHICS.groups.map((g, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '15px' }}>
+                          <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{g.name}</span>
+                          <div style={{ width: '100px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
+                            <div style={{ width: `${g.pct}%`, height: '100%', background: 'var(--aurora)' }} />
+                          </div>
+                          <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{g.pct}%</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Termômetro de Bolso (Orçamento) */}
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '12px',
+                      borderLeft: isMobile ? 'none' : '1px solid var(--border-subtle)',
+                      paddingLeft: isMobile ? 0 : '24px',
+                      borderTop: isMobile ? '1px solid var(--border-subtle)' : 'none',
+                      paddingTop: isMobile ? '16px' : 0
+                    }}>
+                      <span className="ep-eyebrow" style={{ color: 'var(--accent)', fontSize: '15px' }}>Termômetro de Bolso</span>
+                      {TOURIST_DEMOGRAPHICS.budget.map((b, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '15px' }}>
+                          <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{b.label}</span>
+                          <div style={{ width: '100px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
                             <div style={{
-                              width: '18px',
-                              height: `${item.stars * scale}px`,
-                              background: 'var(--accent)',
-                              borderRadius: 'var(--radius-xs) var(--radius-xs) 0 0',
-                              boxShadow: 'var(--glow-sm)',
-                              transition: 'height 0.4s ease'
-                            }} />
-                            {/* Brilhos Apagados bar */}
-                            <div style={{
-                              width: '18px',
-                              height: `${item.eclipses * scale}px`,
-                              background: 'var(--border-strong)',
-                              borderRadius: 'var(--radius-xs) var(--radius-xs) 0 0',
-                              transition: 'height 0.4s ease'
+                              width: `${b.pct}%`,
+                              height: '100%',
+                              background: b.key === 'b1' ? 'var(--text-muted)' :
+                                         (b.key === 'b2' ? 'var(--accent)' :
+                                         (b.key === 'b3' ? 'var(--aurora)' : 'var(--info)')),
+                              borderRadius: 'var(--radius-full)'
                             }} />
                           </div>
-                          <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600 }}>{item.day}</span>
+                          <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{b.pct}%</span>
                         </div>
-                      );
-                    })}
+                      ))}
+                    </div>
                   </div>
-                </Card>
+                </div>
+              </Card>
 
-                {/* Perfil de Público Rápido */}
-                <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-                  <div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Perfil do Turista Rápido</h3>
-                    <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Identidade de grupo e vibes predominantes</span>
-                  </div>
-
-                  {/* Vibes */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                    <span className="ep-eyebrow" style={{ color: 'var(--info)', fontSize: '11px' }}>Vibes da Semana</span>
-                    {TOURIST_DEMOGRAPHICS.vibes.map((v, i) => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
-                        <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{v.name}</span>
-                        <div style={{ width: '120px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
-                          <div style={{ width: `${v.pct}%`, height: '100%', background: v.color }} />
-                        </div>
-                        <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{v.pct}%</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Groups */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', borderTop: '1px solid var(--border-subtle)', paddingTop: '16px', marginTop: '4px' }}>
-                    <span className="ep-eyebrow" style={{ color: 'var(--aurora)', fontSize: '11px' }}>Composição do Grupo</span>
-                    {TOURIST_DEMOGRAPHICS.groups.map((g, i) => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
-                        <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{g.name}</span>
-                        <div style={{ width: '120px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
-                          <div style={{ width: `${g.pct}%`, height: '100%', background: 'var(--aurora)' }} />
-                        </div>
-                        <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{g.pct}%</span>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-
-              </div>
-
+              
               {/* Linha 3: Widget de Mercado + Dedo na Ferida */}
               <div style={{
                 display: 'grid',
@@ -608,9 +679,9 @@ export default function App() {
                 {/* Fecomércio Card */}
                 <Card padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '12px', background: 'linear-gradient(135deg, var(--surface-card) 0%, rgba(20,134,196,0.06) 100%)' }}>
                   <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                    <span className="ep-eyebrow" style={{ color: 'var(--info)' }}>Termômetro de Mercado (CDL/Fecomércio)</span>
+                    <span className="ep-eyebrow" style={{ color: 'var(--info)', fontSize: '15px' }}>Termômetro de Mercado (CDL/Fecomércio)</span>
                   </div>
-                  <p style={{ fontSize: '14px', lineHeight: 1.5, margin: 0, color: 'var(--text-primary)' }}>
+                  <p style={{ fontSize: '16px', lineHeight: 1.5, margin: 0, color: 'var(--text-primary)' }}>
                     O faturamento do setor gastronômico de **Ponta Negra** teve uma **alta média de 5.4%** esta semana. O seu restaurante cresceu **8.2%** em feedbacks recebidos!
                   </p>
                   <Button variant="ghost" size="sm" onClick={() => setActiveTab('oportunidades')} style={{ alignSelf: 'flex-start' }}>
@@ -621,12 +692,12 @@ export default function App() {
                 {/* Oportunidades Quick list */}
                 <Card padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span className="ep-eyebrow" style={{ color: 'var(--danger)' }}>Oportunidades — Buscas Não Atendidas</span>
+                    <span className="ep-eyebrow" style={{ color: 'var(--danger)', fontSize: '15px' }}>Oportunidades — Buscas Não Atendidas</span>
                     <Badge tone="danger" dot>Semana</Badge>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     {LOST_OPPORTUNITIES.slice(0, 2).map((opp, idx) => (
-                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', background: 'var(--surface-inset)', padding: '6px 12px', borderRadius: 'var(--radius-sm)' }}>
+                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '15px', background: 'var(--surface-inset)', padding: '6px 12px', borderRadius: 'var(--radius-sm)' }}>
                         <span style={{ fontWeight: 600 }}>• "{opp.term}"</span>
                         <span style={{ color: 'var(--accent)', fontWeight: 700 }}>{opp.count} buscas a 2km</span>
                       </div>
@@ -855,8 +926,8 @@ export default function App() {
                 {/* Pocket Budget (Termômetro de Bolso) */}
                 <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   <div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0 }}>Termômetro de Bolso (Orçamento)</h3>
-                    <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Perfil de gasto dos turistas que transitam no bairro no momento</span>
+                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '22px' }}>Termômetro de Bolso (Orçamento)</h3>
+                    <span style={{ fontSize: '16px', color: 'var(--text-muted)' }}>Perfil de gasto dos turistas que transitam no bairro no momento</span>
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -874,17 +945,17 @@ export default function App() {
                           boxShadow: item.featured ? 'var(--glow-sm)' : 'none'
                         }}
                       >
-                        <div style={{ display: 'flex', justifycontent: 'space-between', justifyContent: 'space-between', fontWeight: 600 }}>
-                          <span style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 600 }}>
+                          <span style={{ display: 'flex', gap: '6px', alignItems: 'center', fontSize: '18px' }}>
                             {item.label}
                           </span>
-                          <span style={{ fontSize: '18px', color: item.featured ? 'var(--accent)' : 'var(--text-primary)' }}>{item.pct}%</span>
+                          <span style={{ fontSize: '22px', color: item.featured ? 'var(--accent)' : 'var(--text-primary)' }}>{item.pct}%</span>
                         </div>
                         <div style={{ height: '6px', background: 'var(--surface-base)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
                           <div style={{
                             width: `${item.pct}%`,
                             height: '100%',
-                            background: item.key === 'econ' ? 'var(--text-muted)' : (item.key === 'conf' ? 'var(--accent)' : 'var(--aurora)'),
+                            background: item.key === 'b1' ? 'var(--text-muted)' : (item.key === 'b2' ? 'var(--accent)' : (item.key === 'b3' ? 'var(--aurora)' : 'var(--info)')),
                             borderRadius: 'var(--radius-full)'
                           }} />
                         </div>
@@ -894,9 +965,9 @@ export default function App() {
 
                   <Card padding="md" style={{ background: 'var(--surface-inset)', border: '1px solid var(--border-default)', display: 'flex', gap: '12px' }}>
                     <div>
-                      <span className="ep-eyebrow" style={{ fontSize: '11px' }}>Insight IA de Orçamento</span>
-                      <p style={{ fontSize: '14px', margin: '4px 0 0', lineHeight: 1.5, color: 'var(--text-secondary)' }}>
-                        A maioria do público da semana busca a categoria **Conforto/Premium**. Oculte temporariamente a promoção do "prato feito" nas redes sociais e destaque o **Camarão VG na moranga** no seu cardápio físico.
+                      <span className="ep-eyebrow" style={{ fontSize: '15px' }}>Insight IA de Orçamento</span>
+                      <p style={{ fontSize: '16px', margin: '4px 0 0', lineHeight: 1.5, color: 'var(--text-secondary)' }}>
+                        A maioria do público da semana busca a categoria **R$ 100 - 500**. Oculte temporariamente a promoção do "prato feito" nas redes sociais e destaque o **Camarão VG na moranga** no seu cardápio físico.
                       </p>
                     </div>
                   </Card>
@@ -908,17 +979,17 @@ export default function App() {
                   {/* Vibes detailed */}
                   <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div>
-                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Vibe da Viagem</h3>
-                      <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Proporção do perfil de viagem que o turista busca</span>
+                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Vibe da Viagem</h3>
+                      <span style={{ fontSize: '16px', color: 'var(--text-muted)' }}>Proporção do perfil de viagem que o turista busca</span>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                       {TOURIST_DEMOGRAPHICS.vibes.map((v, i) => (
                         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                          <span style={{ flex: 1, fontSize: '14px', fontWeight: 600 }}>{v.name}</span>
+                          <span style={{ flex: 1, fontSize: '16px', fontWeight: 600 }}>{v.name}</span>
                           <div style={{ flex: 1.5, height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
                             <div style={{ width: `${v.pct}%`, height: '100%', background: v.color }} />
                           </div>
-                          <span style={{ fontSize: '14px', fontWeight: 700, width: '32px', textAlign: 'right' }}>{v.pct}%</span>
+                          <span style={{ fontSize: '16px', fontWeight: 700, width: '32px', textAlign: 'right' }}>{v.pct}%</span>
                         </div>
                       ))}
                     </div>
@@ -927,17 +998,17 @@ export default function App() {
                   {/* Group composition detailed */}
                   <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div>
-                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Composição dos Grupos</h3>
-                      <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Quem está consumindo no seu bairro</span>
+                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Composição dos Grupos</h3>
+                      <span style={{ fontSize: '16px', color: 'var(--text-muted)' }}>Quem está consumindo no seu bairro</span>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                       {TOURIST_DEMOGRAPHICS.groups.map((g, i) => (
                         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                          <span style={{ flex: 1, fontSize: '14px', fontWeight: 600 }}>{g.name}</span>
+                          <span style={{ flex: 1, fontSize: '16px', fontWeight: 600 }}>{g.name}</span>
                           <div style={{ flex: 1.5, height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
                             <div style={{ width: `${g.pct}%`, height: '100%', background: 'var(--aurora)' }} />
                           </div>
-                          <span style={{ fontSize: '14px', fontWeight: 700, width: '32px', textAlign: 'right' }}>{g.pct}%</span>
+                          <span style={{ fontSize: '16px', fontWeight: 700, width: '32px', textAlign: 'right' }}>{g.pct}%</span>
                         </div>
                       ))}
                     </div>

@@ -41,7 +41,7 @@ export const INITIAL_REVIEWS = [
     author: "Bruno F. (Belo Horizonte/MG)",
     type: "estrela", // Gostei
     vibe: "Sol & Praia",
-    group: "Amigos",
+    group: "Galera",
     date: "2026-06-25",
     time: "19:15",
     text: "Ótima localização na praia de Ponta Negra. Cerveja bem gelada e porções generosas. O preço é um pouco salgado, mas condiz com a proposta."
@@ -79,15 +79,16 @@ export const INITIAL_REVIEWS = [
 ];
 
 export const TOURIST_DEMOGRAPHICS = {
-  budget: [
-    { label: "Econômico", pct: 15, key: "econ" },
-    { label: "Conforto", pct: 55, key: "conf", featured: true },
-    { label: "Premium", pct: 30, key: "prem" }
-  ],
-  groups: [
-    { name: "Casais", pct: 48 },
-    { name: "Família", pct: 32 },
-    { name: "Amigos", pct: 12 },
+    budget: [
+      { label: "R$ 0 - 100", pct: 15, key: "b1" },
+      { label: "R$ 100 - 500", pct: 45, key: "b2", featured: true },
+      { label: "R$ 500 - 1000", pct: 25, key: "b3" },
+      { label: "R$ +1000", pct: 15, key: "b4" }
+    ],
+    groups: [
+      { name: "Casais", pct: 48 },
+      { name: "Família", pct: 32 },
+      { name: "Galera", pct: 12 },
     { name: "Solo", pct: 8 }
   ],
   vibes: [

@@ -42,7 +42,7 @@ const INITIAL_REVIEWS = [
     author: "Bruno F. (Belo Horizonte/MG)",
     type: "estrela", // Gostei
     vibe: "Sol & Praia",
-    group: "Amigos",
+    group: "Galera",
     date: "2026-06-25",
     time: "19:15",
     text: "Ótima localização na praia de Ponta Negra. Cerveja bem gelada e porções generosas. O preço é um pouco salgado, mas condiz com a proposta."
@@ -81,14 +81,15 @@ const INITIAL_REVIEWS = [
 
 const TOURIST_DEMOGRAPHICS = {
   budget: [
-    { label: "Econômico", pct: 15, key: "econ" },
-    { label: "Conforto", pct: 55, key: "conf", featured: true },
-    { label: "Premium", pct: 30, key: "prem" }
+    { label: "R$ 0 - 100", pct: 15, key: "b1" },
+    { label: "R$ 100 - 500", pct: 45, key: "b2", featured: true },
+    { label: "R$ 500 - 1000", pct: 25, key: "b3" },
+    { label: "R$ +1000", pct: 15, key: "b4" }
   ],
   groups: [
     { name: "Casais", pct: 48 },
     { name: "Família", pct: 32 },
-    { name: "Amigos", pct: 12 },
+    { name: "Galera", pct: 12 },
     { name: "Solo", pct: 8 }
   ],
   vibes: [
@@ -330,7 +331,7 @@ function DashboardApp() {
             <div>
               <h1 style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '16px',
+                fontSize: '20px',
                 fontWeight: 700,
                 margin: 0,
                 letterSpacing: '-0.01em',
@@ -391,7 +392,7 @@ function DashboardApp() {
                   color: active ? 'var(--text-primary)' : 'var(--text-secondary)',
                   cursor: 'pointer',
                   fontWeight: active ? 700 : 500,
-                  fontSize: '14px',
+                  fontSize: '16px',
                   textAlign: 'left',
                   outline: 'none'
                 }}
@@ -401,7 +402,7 @@ function DashboardApp() {
                   <span>{item.label} {item.suffix && <span style={{ color: 'var(--accent)' }}>{item.suffix}</span>}</span>
                 </div>
                 {item.count !== undefined && (
-                  <Badge tone={active ? "accent" : "neutral"} style={{ fontSize: '11px', padding: '1px 5px' }}>{item.count}</Badge>
+                  <Badge tone={active ? "accent" : "neutral"} style={{ fontSize: '15px', padding: '1px 5px' }}>{item.count}</Badge>
                 )}
               </button>
             );
@@ -418,8 +419,8 @@ function DashboardApp() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '2px' }}>
             <Avatar name="Ana Lima" size={32} ring={isPremium} />
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Ana Lima</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Gerente de Operações</div>
+              <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Ana Lima</div>
+              <div style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Gerente de Operações</div>
             </div>
           </div>
         </div>
@@ -470,8 +471,8 @@ function DashboardApp() {
               )}
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: 'var(--radius-full)', background: 'var(--surface-inset)', border: '1px solid var(--border-subtle)', maxWidth: isMobile ? '200px' : 'none', overflow: 'hidden' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: catColor(ESTABLISHMENT_INFO.category) }} />
-                <span style={{ fontSize: '13px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{ESTABLISHMENT_INFO.name}</span>
-                {!isMobile && <span style={{ fontSize: '11px', color: 'var(--text-secondary)', borderLeft: '1px solid var(--border-subtle)', paddingLeft: '8px' }}>{ESTABLISHMENT_INFO.location}</span>}
+                <span style={{ fontSize: '15px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{ESTABLISHMENT_INFO.name}</span>
+                {!isMobile && <span style={{ fontSize: '15px', color: 'var(--text-secondary)', borderLeft: '1px solid var(--border-subtle)', paddingLeft: '8px' }}>{ESTABLISHMENT_INFO.location}</span>}
               </div>
             </div>
 
@@ -492,7 +493,7 @@ function DashboardApp() {
                 border: '1px solid var(--border-default)',
                 color: 'var(--text-primary)',
                 padding: '0 12px',
-                fontSize: '12px',
+                fontSize: '15px',
                 fontWeight: 600,
                 cursor: 'pointer',
                 width: isMobile ? '100%' : 'auto'
@@ -523,7 +524,7 @@ function DashboardApp() {
                 border: '1px solid var(--border-subtle)',
                 padding: '12px 18px',
                 borderRadius: 'var(--radius-md)',
-                fontSize: '13px',
+                fontSize: '15px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -532,64 +533,63 @@ function DashboardApp() {
                 <span>
                   **Métrica de Satisfação:** Registro de Estrela (Gostei) para cada avaliação positiva e Brilho Apagado (Não Gostei) para cada experiência negativa.
                 </span>
-                <Badge tone="accent" style={{ fontSize: '11px' }}>Conceito Principal</Badge>
+                <Badge tone="accent" style={{ fontSize: '15px' }}>Conceito Principal</Badge>
               </div>
 
               {/* KPI cards grid */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
                 <Card interactive padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '6px', borderLeft: '3px solid var(--info)' }}>
-                  <span className="ep-eyebrow" style={{ color: 'var(--info)', fontSize: '11px' }}>Total de Retornos</span>
-                  <span style={{ fontSize: '30px', fontFamily: 'var(--font-display)', fontWeight: 700 }}>
+                  <span className="ep-eyebrow" style={{ color: 'var(--info)', fontSize: '15px' }}>Total de Retornos</span>
+                  <span style={{ fontSize: '40px', fontFamily: 'var(--font-display)', fontWeight: 700 }}>
                     {kpis.total}
                   </span>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Interações totais no aplicativo</span>
+                  <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Interações totais no aplicativo</span>
                 </Card>
 
                 <Card interactive padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '6px', borderLeft: '3px solid var(--accent)' }}>
-                  <span className="ep-eyebrow" style={{ color: 'var(--accent)', fontSize: '11px' }}>Estrelas Concedidas</span>
+                  <span className="ep-eyebrow" style={{ color: 'var(--accent)', fontSize: '15px' }}>Estrelas Concedidas</span>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-                    <span style={{ fontSize: '30px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--accent)' }}>
+                    <span style={{ fontSize: '40px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--accent)' }}>
                       {kpis.stars}
                     </span>
-                    <span style={{ color: 'var(--success)', fontSize: '11px', fontWeight: 600 }}>Gostei</span>
+                    <span style={{ color: 'var(--success)', fontSize: '15px', fontWeight: 600 }}>Gostei</span>
                   </div>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Clientes satisfeitos</span>
+                  <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Clientes satisfeitos</span>
                 </Card>
 
                 <Card interactive padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '6px', borderLeft: '3px solid var(--border-strong)' }}>
-                  <span className="ep-eyebrow" style={{ color: 'var(--text-muted)', fontSize: '11px' }}>Brilhos Apagados</span>
+                  <span className="ep-eyebrow" style={{ color: 'var(--text-muted)', fontSize: '15px' }}>Brilhos Apagados</span>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-                    <span style={{ fontSize: '30px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--text-secondary)' }}>
+                    <span style={{ fontSize: '40px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--text-secondary)' }}>
                       {kpis.eclipses}
                     </span>
-                    <span style={{ color: 'var(--danger)', fontSize: '11px', fontWeight: 600 }}>Não Gostei</span>
+                    <span style={{ color: 'var(--danger)', fontSize: '15px', fontWeight: 600 }}>Não Gostei</span>
                   </div>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Pontos a melhorar</span>
+                  <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Pontos a melhorar</span>
                 </Card>
 
                 <Card interactive padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '6px', borderLeft: '3px solid var(--aurora)' }}>
-                  <span className="ep-eyebrow" style={{ color: 'var(--aurora)', fontSize: '11px' }}>Brilho do Negócio</span>
+                  <span className="ep-eyebrow" style={{ color: 'var(--aurora)', fontSize: '15px' }}>Brilho do Negócio</span>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-                    <span style={{ fontSize: '30px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--aurora)', filter: 'drop-shadow(var(--glow-star))' }}>
+                    <span style={{ fontSize: '40px', fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--aurora)', filter: 'drop-shadow(var(--glow-star))' }}>
                       {kpis.brightness}
                     </span>
-                    <span style={{ color: 'var(--success)', fontSize: '11px', fontWeight: 600 }}>Aprovação</span>
+                    <span style={{ color: 'var(--success)', fontSize: '15px', fontWeight: 600 }}>Aprovação</span>
                   </div>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Índice líquido de satisfação</span>
+                  <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Índice líquido de satisfação</span>
                 </Card>
               </div>
 
-              {/* Grid block */}
-              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.5fr 1fr', gap: '24px' }}>
-
-                {/* SVG comparison bar chart */}
-                <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '16px', minHeight: '380px' }}>
+              {/* Row 2: Céu do Estabelecimento & Perfil de Público */}
+              <Card padding="lg" style={{ minHeight: '380px' }}>
+                {/* Top: Céu do Estabelecimento */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Céu do Estabelecimento</h3>
-                      <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Histórico diário de Estrelas (Gostei) vs Brilhos Apagados (Não Gostei)</span>
+                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Céu do Estabelecimento</h3>
+                      <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Histórico diário de Estrelas (Gostei) vs Brilhos Apagados (Não Gostei)</span>
                     </div>
-                    <div style={{ display: 'flex', gap: '14px', fontSize: '12px' }}>
+                    <div style={{ display: 'flex', gap: '14px', fontSize: '14px' }}>
                       <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                         <span style={{ width: '8px', height: '8px', background: 'var(--accent)', borderRadius: '50%', boxShadow: 'var(--glow-sm)' }} />
                         Estrela
@@ -601,74 +601,167 @@ function DashboardApp() {
                     </div>
                   </div>
 
-                  <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', padding: '20px 10px 0', height: '230px' }}>
-                    {[
-                      { day: "Seg", stars: 9, eclipses: 1 },
-                      { day: "Ter", stars: 5, eclipses: 3 },
-                      { day: "Qua", stars: 12, eclipses: 2 },
-                      { day: "Qui", stars: 14, eclipses: 1 },
-                      { day: "Sex", stars: 24, eclipses: 4 },
-                      { day: "Sáb", stars: 28, eclipses: 3 },
-                      { day: "Dom", stars: 22, eclipses: 2 }
-                    ].map((item, idx) => {
-                      const scale = 5;
-                      return (
-                        <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, gap: '10px' }}>
-                          <div style={{ display: 'flex', gap: '6px', alignItems: 'flex-end', height: '180px' }}>
-                            <div style={{ width: '18px', height: `${item.stars * scale}px`, background: 'var(--accent)', borderRadius: 'var(--radius-xs) var(--radius-xs) 0 0', boxShadow: 'var(--glow-sm)' }} />
-                            <div style={{ width: '18px', height: `${item.eclipses * scale}px`, background: 'var(--border-strong)', borderRadius: 'var(--radius-xs) var(--radius-xs) 0 0' }} />
+                  {/* SVG Bar Chart with Grid and Labels */}
+                  <div style={{ display: 'flex', flexDirection: 'row', flex: 1, gap: '12px', height: '240px', marginTop: '20px' }}>
+                    {/* Y-Axis scale labels on the left */}
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '180px', fontSize: '12px', color: 'var(--text-muted)', width: '24px', textAlign: 'right', borderRight: '1px solid var(--border-subtle)', paddingRight: '8px' }}>
+                      <span>30</span>
+                      <span>20</span>
+                      <span>10</span>
+                      <span>0</span>
+                    </div>
+
+                    {/* Columns area */}
+                    <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', position: 'relative', height: '180px' }}>
+                      {/* Horizontal background grid lines */}
+                      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100%', pointerEvents: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                        <div style={{ borderTop: '1px dashed var(--border-subtle)', width: '100%', height: '1px' }} />
+                        <div style={{ borderTop: '1px dashed var(--border-subtle)', width: '100%', height: '1px' }} />
+                        <div style={{ borderTop: '1px dashed var(--border-subtle)', width: '100%', height: '1px' }} />
+                        <div style={{ borderTop: '1px solid var(--border-strong)', width: '100%', height: '1px' }} />
+                      </div>
+
+                      {/* The bars */}
+                      {[
+                        { day: "Seg", stars: 9, eclipses: 1 },
+                        { day: "Ter", stars: 5, eclipses: 3 },
+                        { day: "Qua", stars: 12, eclipses: 2 },
+                        { day: "Qui", stars: 14, eclipses: 1 },
+                        { day: "Sex", stars: 24, eclipses: 4 },
+                        { day: "Sáb", stars: 28, eclipses: 3 },
+                        { day: "Dom", stars: 22, eclipses: 2 }
+                      ].map((item, idx) => {
+                        const scale = 5.0; // 30 max * 5.0 = 150px (leaving 30px for labels at top)
+                        return (
+                          <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, zIndex: 1 }}>
+                            <div style={{ display: 'flex', gap: '6px', alignItems: 'flex-end', height: '180px', position: 'relative' }}>
+                              
+                              {/* Stars bar + label */}
+                              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                                <span style={{ fontSize: '11px', fontWeight: '700', color: 'var(--accent)' }}>{item.stars}</span>
+                                <div style={{
+                                  width: '18px',
+                                  height: `${item.stars * scale}px`,
+                                  background: 'var(--accent)',
+                                  borderRadius: 'var(--radius-xs) var(--radius-xs) 0 0',
+                                  boxShadow: 'var(--glow-sm)',
+                                  transition: 'height 0.4s ease'
+                                }} />
+                              </div>
+
+                              {/* Brilhos Apagados bar + label */}
+                              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                                <span style={{ fontSize: '11px', fontWeight: '700', color: 'var(--text-secondary)' }}>{item.eclipses}</span>
+                                <div style={{
+                                  width: '18px',
+                                  height: `${item.eclipses * scale}px`,
+                                  background: 'var(--border-strong)',
+                                  borderRadius: 'var(--radius-xs) var(--radius-xs) 0 0',
+                                  transition: 'height 0.4s ease'
+                                }} />
+                              </div>
+
+                            </div>
+                            <span style={{ fontSize: '14px', color: 'var(--text-secondary)', fontWeight: 600, marginTop: '8px' }}>{item.day}</span>
                           </div>
-                          <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600 }}>{item.day}</span>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
-                </Card>
+                </div>
 
-                {/* Perfil de Público Rápido */}
-                <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                {/* Section Divider */}
+                <hr style={{ border: 'none', borderTop: '1px solid var(--border-subtle)', margin: '28px 0 20px 0' }} />
+
+                {/* Bottom: Perfil do Turista Rápido */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Perfil do Turista Rápido</h3>
-                    <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Identidade de grupo e vibes predominantes</span>
+                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Perfil do Turista Rápido</h3>
+                    <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Identidade de grupo, vibes e orçamento local</span>
                   </div>
 
-                  {/* Vibes */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                    <span className="ep-eyebrow" style={{ color: 'var(--info)', fontSize: '11px' }}>Vibes da Semana</span>
-                    {TOURIST_DEMOGRAPHICS.vibes.map((v, i) => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
-                        <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{v.name}</span>
-                        <div style={{ width: '120px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
-                          <div style={{ width: `${v.pct}%`, height: '100%', background: v.color }} />
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+                    gap: '32px',
+                    marginTop: '8px'
+                  }}>
+                    {/* Vibes */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                      <span className="ep-eyebrow" style={{ color: 'var(--info)', fontSize: '15px' }}>Vibes da Semana</span>
+                      {TOURIST_DEMOGRAPHICS.vibes.map((v, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '15px' }}>
+                          <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{v.name}</span>
+                          <div style={{ width: '100px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
+                            <div style={{ width: `${v.pct}%`, height: '100%', background: v.color }} />
+                          </div>
+                          <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{v.pct}%</span>
                         </div>
-                        <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{v.pct}%</span>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
 
-                  {/* Groups */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', borderTop: '1px solid var(--border-subtle)', paddingTop: '16px', marginTop: '4px' }}>
-                    <span className="ep-eyebrow" style={{ color: 'var(--aurora)', fontSize: '11px' }}>Composição do Grupo</span>
-                    {TOURIST_DEMOGRAPHICS.groups.map((g, i) => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
-                        <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{g.name}</span>
-                        <div style={{ width: '120px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
-                          <div style={{ width: `${g.pct}%`, height: '100%', background: 'var(--aurora)' }} />
+                    {/* Groups */}
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '12px',
+                      borderLeft: isMobile ? 'none' : '1px solid var(--border-subtle)',
+                      paddingLeft: isMobile ? 0 : '24px',
+                      borderTop: isMobile ? '1px solid var(--border-subtle)' : 'none',
+                      paddingTop: isMobile ? '16px' : 0
+                    }}>
+                      <span className="ep-eyebrow" style={{ color: 'var(--aurora)', fontSize: '15px' }}>Composição do Grupo</span>
+                      {TOURIST_DEMOGRAPHICS.groups.map((g, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '15px' }}>
+                          <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{g.name}</span>
+                          <div style={{ width: '100px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
+                            <div style={{ width: `${g.pct}%`, height: '100%', background: 'var(--aurora)' }} />
+                          </div>
+                          <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{g.pct}%</span>
                         </div>
-                        <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{g.pct}%</span>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-              </div>
+                      ))}
+                    </div>
 
+                    {/* Termômetro de Bolso (Orçamento) */}
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '12px',
+                      borderLeft: isMobile ? 'none' : '1px solid var(--border-subtle)',
+                      paddingLeft: isMobile ? 0 : '24px',
+                      borderTop: isMobile ? '1px solid var(--border-subtle)' : 'none',
+                      paddingTop: isMobile ? '16px' : 0
+                    }}>
+                      <span className="ep-eyebrow" style={{ color: 'var(--accent)', fontSize: '15px' }}>Termômetro de Bolso</span>
+                      {TOURIST_DEMOGRAPHICS.budget.map((b, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '15px' }}>
+                          <span style={{ flex: 1, color: 'var(--text-secondary)' }}>{b.label}</span>
+                          <div style={{ width: '100px', height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
+                            <div style={{
+                              width: `${b.pct}%`,
+                              height: '100%',
+                              background: b.key === 'b1' ? 'var(--text-muted)' :
+                                         (b.key === 'b2' ? 'var(--accent)' :
+                                         (b.key === 'b3' ? 'var(--aurora)' : 'var(--info)')),
+                              borderRadius: 'var(--radius-full)'
+                            }} />
+                          </div>
+                          <span style={{ width: '32px', textAlign: 'right', fontWeight: 600 }}>{b.pct}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              
               {/* Row 3 */}
               <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1.3fr', gap: '24px' }}>
                 <Card padding="md" style={{ display: 'flex', flexDirection: 'column', gap: '12px', background: 'linear-gradient(135deg, var(--surface-card) 0%, rgba(20,134,196,0.06) 100%)' }}>
                   <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                     <span className="ep-eyebrow" style={{ color: 'var(--info)' }}>Termômetro de Mercado (CDL/Fecomércio)</span>
                   </div>
-                  <p style={{ fontSize: '14px', lineHeight: 1.5, margin: 0, color: 'var(--text-primary)' }}>
+                  <p style={{ fontSize: '16px', lineHeight: 1.5, margin: 0, color: 'var(--text-primary)' }}>
                     O faturamento do setor gastronômico de **Ponta Negra** teve uma **alta média de 5.4%** esta semana. O seu restaurante cresceu **8.2%** em feedbacks recebidos!
                   </p>
                 </Card>
@@ -680,7 +773,7 @@ function DashboardApp() {
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     {LOST_OPPORTUNITIES.slice(0, 2).map((opp, idx) => (
-                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', background: 'var(--surface-inset)', padding: '6px 12px', borderRadius: 'var(--radius-sm)' }}>
+                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '15px', background: 'var(--surface-inset)', padding: '6px 12px', borderRadius: 'var(--radius-sm)' }}>
                         <span style={{ fontWeight: 600 }}>• "{opp.term}"</span>
                         <span style={{ color: 'var(--accent)', fontWeight: 700 }}>{opp.count} buscas a 2km</span>
                       </div>
@@ -701,8 +794,8 @@ function DashboardApp() {
                   gap: '24px'
                 }}>
                   <div style={{ flex: 1 }}>
-                    <h3 style={{ fontFamily: 'var(--font-display)', margin: '0 0 6px', fontSize: '18px' }}>Desbloqueie o Consultor Estelar IA ✦</h3>
-                    <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.4 }}>
+                    <h3 style={{ fontFamily: 'var(--font-display)', margin: '0 0 6px', fontSize: '20px' }}>Desbloqueie o Consultor Estelar IA ✦</h3>
+                    <p style={{ fontSize: '15px', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.4 }}>
                       Deixe a nossa inteligência artificial cruzar automaticamente seus Brilhos Apagados (queixas) e dados de turistas com o calendário regional para guiar o seu faturamento.
                     </p>
                   </div>
@@ -722,10 +815,10 @@ function DashboardApp() {
                   <Card padding="lg" style={{ maxWidth: '480px', textAlign: 'center', background: 'var(--surface-overlay)', border: '1px solid var(--aurora)', boxShadow: 'var(--glow-aurora)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
                     <span style={{ fontSize: '40px' }}>🤖✦</span>
                     <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', margin: 0 }}>Consultor Estelar Premium</h3>
-                    <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                    <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
                       Converse em linguagem natural com a nossa IA treinada com os dados do seu restaurante combinados com as estatísticas do mercado varejista da Fecomércio/CDL.
                     </p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', width: '100%', fontSize: '13px', color: 'var(--text-secondary)', padding: '12px 16px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-md)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', width: '100%', fontSize: '15px', color: 'var(--text-secondary)', padding: '12px 16px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-md)' }}>
                       <div>✅ Projeção de fluxo baseada na maré e clima local.</div>
                       <div>✅ Matriz automática de oportunidades semanais.</div>
                       <div>✅ Respostas inteligentes para queixas de clientes.</div>
@@ -744,20 +837,20 @@ function DashboardApp() {
                     {chatMessages.map(msg => (
                       <div key={msg.id} style={{ display: 'flex', flexDirection: msg.sender === 'user' ? 'row-reverse' : 'row', alignItems: 'flex-start', gap: '12px' }}>
                         {msg.sender === 'ai' ? (
-                          <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'var(--accent-soft)', border: '1px solid var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>🤖</div>
+                          <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'var(--accent-soft)', border: '1px solid var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px' }}>🤖</div>
                         ) : (
                           <Avatar name="Ana Lima" size={36} ring />
                         )}
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '75%' }}>
-                          <div style={{ background: msg.sender === 'user' ? 'var(--accent-soft)' : 'var(--surface-inset)', border: `1px solid ${msg.sender === 'user' ? 'var(--accent)' : 'var(--border-subtle)'}`, borderRadius: 'var(--radius-lg)', padding: '14px 18px', color: 'var(--text-primary)', fontSize: '14px', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
+                          <div style={{ background: msg.sender === 'user' ? 'var(--accent-soft)' : 'var(--surface-inset)', border: `1px solid ${msg.sender === 'user' ? 'var(--accent)' : 'var(--border-subtle)'}`, borderRadius: 'var(--radius-lg)', padding: '14px 18px', color: 'var(--text-primary)', fontSize: '16px', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
                             {msg.text}
                           </div>
 
                           {msg.widget === 'heatmap' && (
                             <Card padding="md" style={{ background: 'var(--surface-base)', border: '1px solid var(--border-default)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                               <span className="ep-eyebrow">Matriz de Calor (Movimentação)</span>
-                              <div style={{ display: 'grid', gridTemplateColumns: '80px repeat(3, 1fr)', gap: '6px', fontSize: '11px', textAlign: 'center' }}>
+                              <div style={{ display: 'grid', gridTemplateColumns: '80px repeat(3, 1fr)', gap: '6px', fontSize: '15px', textAlign: 'center' }}>
                                 <div />
                                 <div style={{ fontWeight: 600 }}>Manhã</div>
                                 <div style={{ fontWeight: 600 }}>Tarde</div>
@@ -802,7 +895,7 @@ function DashboardApp() {
                     {isTyping && (
                       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                         <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'var(--accent-soft)', border: '1px solid var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>🤖</div>
-                        <div style={{ background: 'var(--surface-inset)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-lg)', padding: '14px 18px', color: 'var(--text-muted)', fontSize: '13px' }}>
+                        <div style={{ background: 'var(--surface-inset)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-lg)', padding: '14px 18px', color: 'var(--text-muted)', fontSize: '15px' }}>
                           O Consultor Estelar está interpretando dados...
                         </div>
                       </div>
@@ -824,8 +917,8 @@ function DashboardApp() {
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 1fr', gap: '24px' }}>
               <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-display)', margin: 0 }}>Termômetro de Bolso (Orçamento)</h3>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Perfil de gasto dos turistas que transitam no bairro</span>
+                  <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '22px' }}>Termômetro de Bolso (Orçamento)</h3>
+                  <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Perfil de gasto dos turistas que transitam no bairro</span>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -836,7 +929,7 @@ function DashboardApp() {
                         <span style={{ color: item.featured ? 'var(--accent)' : 'var(--text-primary)' }}>{item.pct}%</span>
                       </div>
                       <div style={{ height: '6px', background: 'var(--surface-base)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
-                        <div style={{ width: `${item.pct}%`, height: '100%', background: item.key === 'econ' ? 'var(--text-muted)' : (item.key === 'conf' ? 'var(--accent)' : 'var(--aurora)'), borderRadius: 'var(--radius-full)' }} />
+                        <div style={{ width: `${item.pct}%`, height: '100%', background: item.key === 'b1' ? 'var(--text-muted)' : (item.key === 'b2' ? 'var(--accent)' : (item.key === 'b3' ? 'var(--aurora)' : 'var(--info)')), borderRadius: 'var(--radius-full)' }} />
                       </div>
                     </div>
                   ))}
@@ -844,9 +937,9 @@ function DashboardApp() {
 
                 <Card padding="md" style={{ background: 'var(--surface-inset)', border: '1px solid var(--border-default)' }}>
                   <div>
-                    <span className="ep-eyebrow" style={{ fontSize: '11px' }}>Insight IA de Orçamento</span>
-                    <p style={{ fontSize: '14px', margin: '4px 0 0', lineHeight: 1.5, color: 'var(--text-secondary)' }}>
-                      A maioria do público da semana busca a categoria **Conforto/Premium**. Oculte temporariamente a promoção do "prato feito" nas redes sociais e destaque o **Camarão VG na moranga** no seu cardápio físico.
+                    <span className="ep-eyebrow" style={{ fontSize: '15px' }}>Insight IA de Orçamento</span>
+                    <p style={{ fontSize: '16px', margin: '4px 0 0', lineHeight: 1.5, color: 'var(--text-secondary)' }}>
+                      A maioria do público da semana busca a categoria **R$ 100 - 500**. Oculte temporariamente a promoção do "prato feito" nas redes sociais e destaque o **Camarão VG na moranga** no seu cardápio físico.
                     </p>
                   </div>
                 </Card>
@@ -855,17 +948,17 @@ function DashboardApp() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Vibe da Viagem</h3>
-                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Proporção do perfil de viagem que o turista busca</span>
+                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Vibe da Viagem</h3>
+                    <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Proporção do perfil de viagem que o turista busca</span>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {TOURIST_DEMOGRAPHICS.vibes.map((v, i) => (
                       <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{ flex: 1, fontSize: '14px', fontWeight: 600 }}>{v.name}</span>
+                        <span style={{ flex: 1, fontSize: '16px', fontWeight: 600 }}>{v.name}</span>
                         <div style={{ flex: 1.5, height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
                           <div style={{ width: `${v.pct}%`, height: '100%', background: v.color }} />
                         </div>
-                        <span style={{ fontSize: '14px', fontWeight: 700, width: '32px', textAlign: 'right' }}>{v.pct}%</span>
+                        <span style={{ fontSize: '16px', fontWeight: 700, width: '32px', textAlign: 'right' }}>{v.pct}%</span>
                       </div>
                     ))}
                   </div>
@@ -873,17 +966,17 @@ function DashboardApp() {
 
                 <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Composição dos Grupos</h3>
-                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Quem está consumindo no seu bairro</span>
+                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Composição dos Grupos</h3>
+                    <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Quem está consumindo no seu bairro</span>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {TOURIST_DEMOGRAPHICS.groups.map((g, i) => (
                       <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{ flex: 1, fontSize: '14px', fontWeight: 600 }}>{g.name}</span>
+                        <span style={{ flex: 1, fontSize: '16px', fontWeight: 600 }}>{g.name}</span>
                         <div style={{ flex: 1.5, height: '8px', background: 'var(--surface-inset)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
                           <div style={{ width: `${g.pct}%`, height: '100%', background: 'var(--aurora)' }} />
                         </div>
-                        <span style={{ fontSize: '14px', fontWeight: 700, width: '32px', textAlign: 'right' }}>{g.pct}%</span>
+                        <span style={{ fontSize: '16px', fontWeight: 700, width: '32px', textAlign: 'right' }}>{g.pct}%</span>
                       </div>
                     ))}
                   </div>
@@ -900,8 +993,8 @@ function DashboardApp() {
                 {/* Left Side: Opportunities List & AI Insight */}
                 <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                   <div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '18px' }}>Oportunidades — Demanda Reprimida</h3>
-                    <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>O que digitaram nas pesquisas a 2km do seu restaurante e você não oferece</span>
+                    <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Oportunidades — Demanda Reprimida</h3>
+                    <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>O que digitaram nas pesquisas a 2km do seu restaurante e você não oferece</span>
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -922,14 +1015,14 @@ function DashboardApp() {
                           <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent)' }} />
                           <div>
                             <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-primary)' }}>"{opp.term}"</div>
-                            <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px' }}>Pesquisas no aplicativo da região</div>
+                            <div style={{ fontSize: '15px', color: 'var(--text-muted)', marginTop: '2px' }}>Pesquisas no aplicativo da região</div>
                           </div>
                         </div>
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
                           <div style={{ textAlign: 'right' }}>
-                            <div style={{ fontSize: '18px', fontWeight: 700, color: 'var(--accent)' }}>{opp.count}</div>
-                            <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>buscas esta semana</div>
+                            <div style={{ fontSize: '20px', fontWeight: 700, color: 'var(--accent)' }}>{opp.count}</div>
+                            <div style={{ fontSize: '15px', color: 'var(--text-muted)' }}>buscas esta semana</div>
                           </div>
                           <Badge tone={opp.impact === 'Alto' ? 'danger' : 'warning'}>Impacto {opp.impact}</Badge>
                         </div>
@@ -947,7 +1040,7 @@ function DashboardApp() {
                     <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                       <div style={{ flex: 1 }}>
                         <span className="ep-eyebrow" style={{ color: 'var(--danger)' }}>Insight do Consultor IA</span>
-                        <p style={{ fontSize: '14px', margin: '4px 0 0', lineHeight: 1.6, color: 'var(--text-primary)' }}>
+                        <p style={{ fontSize: '16px', margin: '4px 0 0', lineHeight: 1.6, color: 'var(--text-primary)' }}>
                           Você perdeu aproximadamente **42 mesas potenciais** nesta semana por não ter opções veganas no cardápio. Adicionar um queijo vegetal ou prato específico (ex: moqueca de caju) pode recuperar essa receita rapidamente.
                         </p>
                         
@@ -961,7 +1054,7 @@ function DashboardApp() {
                             Gerar plano de cardápio vegano no Chat
                           </Button>
                         ) : (
-                          <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '8px', fontStyle: 'italic' }}>
+                          <div style={{ fontSize: '15px', color: 'var(--text-muted)', marginTop: '8px', fontStyle: 'italic' }}>
                             * Ative o Plano Premium para planejar o cardápio vegano com o Consultor IA.
                           </div>
                         )}
@@ -976,8 +1069,8 @@ function DashboardApp() {
                   {/* Monthly revenue loss projection chart */}
                   <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div>
-                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Impacto Financeiro Estimado (Mensal)</h3>
-                      <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Receita potencial não realizada baseada nas pesquisas e ticket médio local</span>
+                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Impacto Financeiro Estimado (Mensal)</h3>
+                      <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Receita potencial não realizada baseada nas pesquisas e ticket médio local</span>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginTop: '10px' }}>
@@ -987,7 +1080,7 @@ function DashboardApp() {
                         { label: "Pet Friendly", value: 1980, color: "var(--info)", pct: 36 }
                       ].map((item, idx) => (
                         <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', fontWeight: 600 }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '15px', fontWeight: 600 }}>
                             <span style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
                               <span style={{ color: 'var(--text-secondary)' }}>{item.label}</span>
                             </span>
@@ -1001,16 +1094,16 @@ function DashboardApp() {
                     </div>
 
                     <div style={{ background: 'var(--surface-inset)', padding: '12px', borderRadius: 'var(--radius-md)', textAlign: 'center', marginTop: '6px' }}>
-                      <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Perda Total Estimada:</span>
-                      <strong style={{ fontSize: '16px', color: 'var(--danger)', marginLeft: '6px' }}>R$ 10.920,00 / mês</strong>
+                      <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Perda Total Estimada:</span>
+                      <strong style={{ fontSize: '20px', color: 'var(--danger)', marginLeft: '6px' }}>R$ 10.920,00 / mês</strong>
                     </div>
                   </Card>
 
                   {/* SVG Demand timeline distribution */}
                   <Card padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div>
-                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '16px' }}>Distribuição das Buscas por Horário</h3>
-                      <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Horários com maior frequência de pesquisas de demanda reprimida</span>
+                      <h3 style={{ fontFamily: 'var(--font-display)', margin: 0, fontSize: '20px' }}>Distribuição das Buscas por Horário</h3>
+                      <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>Horários com maior frequência de pesquisas de demanda reprimida</span>
                     </div>
 
                     <div style={{ height: '120px', position: 'relative', marginTop: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
@@ -1060,7 +1153,7 @@ function DashboardApp() {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <input type="checkbox" id="textFilter" checked={textOnlyFilter} onChange={e => setTextOnlyFilter(e.target.checked)} style={{ accentColor: 'var(--accent)', cursor: 'pointer' }} />
-                  <label htmlFor="textFilter" style={{ fontSize: '14px', cursor: 'pointer', fontWeight: 600 }}>Somente com comentários</label>
+                  <label htmlFor="textFilter" style={{ fontSize: '16px', cursor: 'pointer', fontWeight: 600 }}>Somente com comentários</label>
                 </div>
               </Card>
 
@@ -1071,20 +1164,20 @@ function DashboardApp() {
                       <div>
                         <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                           <span style={{ fontSize: '15px', fontWeight: 700 }}>{review.author}</span>
-                          <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{review.date} às {review.time}</span>
+                          <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>{review.date} às {review.time}</span>
                         </div>
                         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginTop: '6px' }}>
-                          <Badge tone="neutral" style={{ fontSize: '11px' }}>Vibe: {review.vibe}</Badge>
-                          <Badge tone="neutral" style={{ fontSize: '11px' }}>Grupo: {review.group}</Badge>
+                          <Badge tone="neutral" style={{ fontSize: '15px' }}>Vibe: {review.vibe}</Badge>
+                          <Badge tone="neutral" style={{ fontSize: '15px' }}>Grupo: {review.group}</Badge>
                         </div>
                       </div>
 
-                      <Badge tone={review.type === 'estrela' ? 'success' : 'danger'} style={{ fontSize: '11px' }}>
+                      <Badge tone={review.type === 'estrela' ? 'success' : 'danger'} style={{ fontSize: '15px' }}>
                         {review.type === 'estrela' ? 'ESTRELA (GOSTEI)' : 'BRILHO APAGADO (NÃO GOSTEI)'}
                       </Badge>
                     </div>
 
-                    <p style={{ fontSize: '14px', lineHeight: 1.5, color: 'var(--text-secondary)', margin: 0 }}>
+                    <p style={{ fontSize: '16px', lineHeight: 1.5, color: 'var(--text-secondary)', margin: 0 }}>
                       {review.text || <span style={{ fontStyle: 'italic', color: 'var(--text-muted)' }}>Sem comentário escrito</span>}
                     </p>
 
@@ -1092,9 +1185,9 @@ function DashboardApp() {
                       {aiResponses[review.id] ? (
                         <div style={{ background: 'var(--surface-inset)', border: '1px solid var(--border-default)', padding: '12px 16px', borderRadius: 'var(--radius-md)' }}>
                           <div style={{ display: 'flex', gap: '6px', alignItems: 'center', marginBottom: '6px' }}>
-                            <span className="ep-eyebrow" style={{ fontSize: '11px' }}>✦ Resposta IA Gerada</span>
+                            <span className="ep-eyebrow" style={{ fontSize: '15px' }}>✦ Resposta IA Gerada</span>
                           </div>
-                          <p style={{ fontSize: '13px', color: 'var(--text-primary)', margin: 0, lineHeight: 1.5 }}>
+                          <p style={{ fontSize: '15px', color: 'var(--text-primary)', margin: 0, lineHeight: 1.5 }}>
                             {aiResponses[review.id]}
                           </p>
                         </div>
